@@ -6,7 +6,7 @@ import Hero from "./components/Hero/Hero";
 import ShopCategory from "./components/Shop/Shop";
 // import Home from "./Page/Home/Home";
 import Testimonials from "./components/Testimonials/Testimonials";
-import Contact from "./page/Contact/Contact";
+import Contact from "./components/Contact/Contact";
 import Catalog from "./Page/Catalog/Catalog";
 import Footer from "./components/Footer/Footer";
 
