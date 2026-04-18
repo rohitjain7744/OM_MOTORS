@@ -10,6 +10,7 @@ const Catalog = () => {
 <h1>coming soon</h1>
       <div style={{ height: '200px' }}></div>
       <h1>coming soon</h1>
+      <h1>coming soon</h1>
     </div>
   )
 }
