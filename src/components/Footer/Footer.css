@@ -1,0 +1,367 @@
+/* ============================================================
+   FOOTER — Om Motors · Premium Dark Agriculture
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@300;400;500&display=swap');
+
+:root {
+  --lime:         #a8d832;
+  --lime-glow:    #c8f060;
+  --lime-dim:     rgba(168,216,50,0.11);
+  --lime-border:  rgba(168,216,50,0.22);
+  --g-deep:       #071a0f;
+  --g-mid:        #0d2b1a;
+  --g-card:       rgba(255,255,255,0.04);
+  --t-bright:     #ffffff;
+  --t-muted:      rgba(255,255,255,0.50);
+  --t-faint:      rgba(255,255,255,0.25);
+  --border-sub:   rgba(255,255,255,0.07);
+  --f-display:    'Playfair Display', Georgia, serif;
+  --f-body:       'DM Sans', system-ui, sans-serif;
+  --spring:       cubic-bezier(0.34,1.56,0.64,1);
+  --out:          cubic-bezier(0.22,1,0.36,1);
+}
+
+/* ── Shell ── */
+.footer {
+  position: relative;
+  background: var(--g-deep);
+  font-family: var(--f-body);
+  overflow: hidden;
+}
+
+/* Subtle top lime glow line */
+.footer-glow-bar {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(168,216,50,0.35) 30%,
+    rgba(168,216,50,0.55) 50%,
+    rgba(168,216,50,0.35) 70%,
+    transparent 100%
+  );
+}
+
+/* Background radial glow */
+.footer::before {
+  content: '';
+  position: absolute;
+  width: 700px;
+  height: 400px;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse at center, rgba(45,122,58,0.12) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+/* ── Inner grid ── */
+.footer-inner {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1fr 1.5fr;
+  gap: 3rem;
+  padding: 4rem 3rem 3rem;
+  max-width: 1300px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Brand column ── */
+.footer-brand-col { display: flex; flex-direction: column; gap: 1.2rem; }
+
+.footer-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  width: fit-content;
+}
+
+.footer-brand-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: var(--lime-dim);
+  border: 1px solid var(--lime-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--lime);
+  flex-shrink: 0;
+  transition: background .25s, box-shadow .25s;
+}
+.footer-brand:hover .footer-brand-icon {
+  background: rgba(168,216,50,0.18);
+  box-shadow: 0 0 14px rgba(168,216,50,0.28);
+}
+
+.footer-brand-name {
+  font-family: var(--f-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--t-bright);
+  letter-spacing: .02em;
+}
+
+.footer-accent {
+  color: var(--lime);
+  background: linear-gradient(90deg, var(--lime), var(--lime-glow));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.footer-tagline {
+  font-size: .83rem;
+  color: var(--t-muted);
+  line-height: 1.7;
+  font-weight: 300;
+  max-width: 260px;
+}
+
+/* ── Socials ── */
+.footer-socials {
+  display: flex;
+  gap: .6rem;
+  margin-top: .2rem;
+}
+
+.social-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
+  background: var(--g-card);
+  border: 1px solid var(--border-sub);
+  color: var(--t-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: background .25s, border-color .25s, color .25s, transform .25s var(--spring);
+}
+.social-btn:hover {
+  background: var(--lime-dim);
+  border-color: var(--lime-border);
+  color: var(--lime);
+  transform: translateY(-3px) scale(1.08);
+}
+
+/* ── Link columns ── */
+.footer-col { display: flex; flex-direction: column; gap: .9rem; }
+
+.footer-col-heading {
+  font-family: var(--f-body);
+  font-size: .7rem;
+  font-weight: 500;
+  color: var(--lime);
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  margin: 0;
+}
+
+.footer-col-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: .45rem;
+}
+
+.footer-link {
+  color: var(--t-muted);
+  text-decoration: none;
+  font-size: .84rem;
+  font-weight: 400;
+  transition: color .2s, padding-left .2s;
+  display: inline-block;
+}
+.footer-link:hover {
+  color: var(--t-bright);
+  padding-left: 4px;
+}
+
+/* ── Newsletter column ── */
+.footer-newsletter-col { gap: .85rem; }
+
+.footer-newsletter-sub {
+  font-size: .8rem;
+  color: var(--t-muted);
+  line-height: 1.6;
+  font-weight: 300;
+  margin: 0;
+}
+
+/* Subscribe form */
+.sub-form {
+  display: flex;
+  flex-direction: column;
+  gap: .6rem;
+}
+
+.sub-input {
+  width: 100%;
+  height: 40px;
+  padding: 0 1rem;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid var(--border-sub);
+  border-radius: 10px;
+  color: var(--t-bright);
+  font-family: var(--f-body);
+  font-size: .83rem;
+  outline: none;
+  transition: border-color .25s, background .25s, box-shadow .25s;
+}
+.sub-input::placeholder { color: var(--t-faint); }
+.sub-input:focus {
+  border-color: var(--lime-border);
+  background: rgba(168,216,50,0.06);
+  box-shadow: 0 0 0 3px rgba(168,216,50,0.12);
+}
+
+.sub-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 40px;
+  padding: 0 1.2rem;
+  border-radius: 10px;
+  background: var(--lime);
+  color: var(--g-deep);
+  font-family: var(--f-body);
+  font-size: .83rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: background .25s, transform .25s var(--spring), box-shadow .25s;
+  box-shadow:
+    0 4px 14px rgba(168,216,50,0.28),
+    0 0 0 1px rgba(168,216,50,0.25);
+}
+.sub-btn:hover {
+  background: var(--lime-glow);
+  transform: translateY(-2px);
+  box-shadow:
+    0 8px 22px rgba(168,216,50,0.40),
+    0 0 0 1px rgba(168,216,50,0.40);
+}
+.sub-btn:active { transform: scale(.97); }
+
+/* Success state */
+.sub-success {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: .83rem;
+  color: var(--lime);
+  background: var(--lime-dim);
+  border: 1px solid var(--lime-border);
+  border-radius: 10px;
+  padding: .7rem 1rem;
+  animation: fadeUp .4s var(--out) both;
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0);   }
+}
+
+/* Contact rows */
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  gap: .45rem;
+  padding-top: .3rem;
+  border-top: 1px solid var(--border-sub);
+  margin-top: .2rem;
+}
+
+.contact-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: .8rem;
+  color: var(--t-muted);
+  text-decoration: none;
+  transition: color .2s;
+}
+.contact-row:hover { color: var(--lime); }
+.contact-row svg   { flex-shrink: 0; opacity: .7; }
+
+/* ── Bottom bar ── */
+.footer-bottom {
+  border-top: 1px solid var(--border-sub);
+  padding: 1.4rem 3rem;
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+}
+
+.footer-copy {
+  font-size: .75rem;
+  color: var(--t-faint);
+  margin: 0;
+}
+
+.footer-bottom-links {
+  display: flex;
+  align-items: center;
+  gap: .65rem;
+}
+
+.footer-bottom-link {
+  font-size: .75rem;
+  color: var(--t-faint);
+  text-decoration: none;
+  transition: color .2s;
+}
+.footer-bottom-link:hover { color: var(--t-muted); }
+
+.footer-dot {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--t-faint);
+  opacity: .5;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1100px) {
+  .footer-inner {
+    grid-template-columns: 1.4fr 1fr 1fr 1.4fr;
+    gap: 2.2rem;
+    padding: 3.5rem 2rem 2.5rem;
+  }
+  .footer-newsletter-col { grid-column: span 2; }
+}
+
+@media (max-width: 760px) {
+  .footer-inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    padding: 2.5rem 1.5rem 2rem;
+  }
+  .footer-brand-col     { grid-column: span 2; }
+  .footer-newsletter-col{ grid-column: span 2; }
+  .footer-tagline       { max-width: 100%; }
+}
+
+@media (max-width: 440px) {
+  .footer-inner { grid-template-columns: 1fr; padding: 2rem 1.2rem 1.5rem; }
+  .footer-brand-col,
+  .footer-newsletter-col { grid-column: span 1; }
+  .footer-bottom { padding: 1.2rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .social-btn, .sub-btn, .footer-link, .footer-brand-icon { transition: none; }
+  .sub-success { animation: none; }
+}
