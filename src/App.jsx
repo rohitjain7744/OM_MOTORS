@@ -1,32 +1,32 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+// Components
 import Navbar from "./components/Navbar/Navbar";
 import Hero from "./components/Hero/Hero";
 import ShopCategory from "./components/Shop/Shop";
-// import Home from "./Page/Home/Home";
 import Testimonials from "./components/Testimonials/Testimonials";
 import Contact from "./components/Contact/Contact";
-import Catalog from "./Page/Catalog/Catalog";
 import Footer from "./components/Footer/Footer";
 
-// ✅ Clean imports
+// Pages
+import Catalog from "./Page/Catalog/Catalog";
 import Products from "./Page/product/product";
 import Product from "./Page/Product/product";
 import Cart from "./Page/Cart/cart";
 import KnowUs from "./Page/KnowUs/KnowUs";
 
-// 🏠 Home
+// 🏠 Home Page
 const Home = () => (
   <>
     <Hero />
     <ShopCategory />
     <Testimonials />
-    <Contact /> {/* Contact section on home page */}
+    <Contact />
   </>
 );
 
-// 🛒 Load cart
+// 🛒 Load cart safely
 const getCart = () => {
   try {
     return JSON.parse(localStorage.getItem("cart")) || [];
@@ -36,14 +36,14 @@ const getCart = () => {
 };
 
 export default function App() {
-  const [cart, setCart] = useState(getCart);
+  const [cart, setCart] = useState(() => getCart());
 
-  // 💾 Save cart
+  // 💾 Save cart to localStorage
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
 
-  // 🛒 Add to cart
+  // 🛒 Add to cart handler
   const addToCart = useCallback((updateFn) => {
     setCart((prev) => updateFn(prev));
   }, []);
@@ -65,23 +65,17 @@ export default function App() {
         {/* Home */}
         <Route path="/" element={<Home />} />
 
-        {/* ✅ KNOW US (FIXED) */}
+        {/* About */}
         <Route path="/about" element={<KnowUs />} />
 
-        {/* Contact */}
-        <Route
-          path="/contact"
-          element={<Contact/>}
-        />
+        {/* Contact Page */}
+        <Route path="/contact" element={<Contact />} />
 
         {/* Products */}
         <Route
           path="/products"
           element={<Products cart={cart} addToCart={addToCart} />}
         />
-         {/* contact us */}
-
-         {/* <Route path="/contact" element={<Contact />} /> */}
 
         <Route
           path="/products/:category"
@@ -98,26 +92,26 @@ export default function App() {
         <Route
           path="/cart"
           element={<Cart cart={cart} setCart={setCart} />}
-
         />
 
         {/* Catalog */}
-        <Route
-          path="/catalog"
-          element={<Catalog />}
-        />
-
-       
+        <Route path="/catalog" element={<Catalog />} />
 
         {/* 404 */}
         <Route
           path="*"
-          element={<h2 style={{ padding: "100px" }}>404 - Page Not Found</h2>}
+          element={
+            <h2 style={{ padding: "100px" }}>
+              404 - Page Not Found
+            </h2>
+          }
         />
 
-
       </Routes>
- <Footer/>
+
+      {/* Footer */}
+      <Footer />
+
     </BrowserRouter>
   );
 }
