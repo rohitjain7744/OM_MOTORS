@@ -2,14 +2,14 @@ import React, { useState, useEffect, useCallback } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // Components
-import Navbar from "./components/Navbar/Navbar";
-import Hero from "./components/Hero/Hero";
-import ShopCategory from "./components/Shop/Shop";
-import Testimonials from "./components/Testimonials/Testimonials";
+import Navbar from "./Components/Navbar/Navbar";
+import Hero from "./Components/Hero/Hero";
+import ShopCategory from "./Components/Shop/Shop";
+import Testimonials from "./Components/Testimonials/Testimonials";
 import Contact from "./Page/Contact/Contact";
-import Footer from "./components/Footer/Footer";
-import AboutSection from "./components/AboutSection/About";
-import Category from "./components/Category/Category";
+import Footer from "./Components/Footer/Footer";
+import AboutSection from "./Components/AboutSection/About";
+import Category from "./Components/Category/Category";
 
 // Pages
 import Catalog from "./Page/Catalog/Catalog";
