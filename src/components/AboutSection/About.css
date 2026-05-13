@@ -1,0 +1,168 @@
+/* ── About Section Container ── */
+.about-container {
+  padding: 80px 5%;
+  background-color: #071a0f; /* Deep Green Theme */
+  color: #ffffff;
+  overflow: hidden;
+}
+
+.about-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  flex-wrap: wrap; /* Mobile par stack karne ke liye */
+}
+
+/* ── Image Side (Mobile Friendly) ── */
+.about-image-stack {
+  flex: 1;
+  min-width: 320px;
+  position: relative;
+}
+
+.image-main-wrapper {
+  position: relative;
+  border-radius: 30px;
+  overflow: visible;
+}
+
+.main-profile-img {
+  width: 100%;
+  height: auto;
+  border-radius: 24px;
+  object-fit: cover;
+  border: 1px solid rgba(168, 216, 50, 0.2);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+}
+
+/* Floating Badge Fix */
+.experience-badge {
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  background: #a8d832; /* Lime Accent */
+  color: #071a0f;
+  padding: 20px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 15px 30px rgba(168, 216, 50, 0.3);
+  z-index: 2;
+}
+
+.experience-badge .years {
+  font-size: 2rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.experience-badge .badge-text {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* ── Text Content Side ── */
+.about-text-content {
+  flex: 1.2;
+  min-width: 320px;
+}
+
+.section-label {
+  color: #a8d832;
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.about-headline {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 1.1;
+  margin-bottom: 30px;
+}
+
+.about-headline span {
+  color: #a8d832;
+}
+
+.about-description p {
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.8;
+  font-size: 1.05rem;
+  margin-bottom: 20px;
+}
+
+.about-description strong {
+  color: #fff;
+  border-bottom: 1px solid #a8d832;
+}
+
+/* ── Authorised Partners Grid ── */
+.brand-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.brand-tag {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 10px 15px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: 0.3s;
+  white-space: nowrap;
+}
+
+.brand-tag:hover {
+  background: rgba(168, 216, 50, 0.1);
+  border-color: #a8d832;
+  transform: translateY(-3px);
+}
+
+/* ── Responsive Mobile Media Queries ── */
+@media (max-width: 992px) {
+  .about-wrapper {
+    flex-direction: column;
+    gap: 40px;
+  }
+  
+  .about-text-content {
+    text-align: center;
+  }
+
+  .brand-grid {
+    justify-content: center;
+  }
+
+  .experience-badge {
+    right: 10px;
+    bottom: 10px;
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-headline {
+    font-size: 1.8rem;
+  }
+  
+  .brand-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .brand-tag {
+    font-size: 0.7rem;
+    padding: 8px;
+  }
+}

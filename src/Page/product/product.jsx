@@ -1,14 +1,10 @@
 import React, { useState, useRef } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { products } from "../../data/products";
-import "./product.css";
+import "./product.css"; 
+// Note: Catgory import remains if needed elsewhere, but price logic is removed below
 
-const CATEGORIES = ["All", "Hand Tools", "Power Tools", "Plumbing"];
-const SORT_OPTIONS = [
-  { value: "",     label: "Featured"          },
-  { value: "low",  label: "Price: Low → High" },
-  { value: "high", label: "Price: High → Low" },
-];
+const CATEGORIES = ["All", "Machine Component", "Belt", "Bearing","Gear","Sive"];
 
 export default function Products({ addToCart, cart = [] }) {
   const { category } = useParams();
@@ -16,13 +12,12 @@ export default function Products({ addToCart, cart = [] }) {
 
   const [search,      setSearch]      = useState("");
   const [selectedCat, setSelectedCat] = useState("All");
-  const [sort,        setSort]        = useState("");
   const [toast,       setToast]       = useState(null);
   const [added,       setAdded]       = useState({});
-  const [view,        setView]        = useState("grid"); // ✅ FIX 1: was missing
+  const [view,        setView]        = useState("grid"); 
   const toastTimer = useRef(null);
 
-  /* ── Filter ── */
+  /* ── Filter Logic ── */
   const currentCategory = category
     ? category.replace(/-/g, " ").toLowerCase()
     : selectedCat.toLowerCase();
@@ -39,14 +34,10 @@ export default function Products({ addToCart, cart = [] }) {
     (p.name + p.category).toLowerCase().includes(search.toLowerCase())
   );
 
-  if (sort === "low")  filtered.sort((a, b) => a.price - b.price);
-  if (sort === "high") filtered.sort((a, b) => b.price - a.price);
-
   /* ── Add to cart ── */
   const handleAdd = (product) => {
     if (!addToCart) return;
 
-    // ✅ FIX 2: check cart BEFORE calling addToCart so toast fires correctly
     const exists = cart.find((p) => p.id === product.id);
 
     setToast({
@@ -80,12 +71,13 @@ export default function Products({ addToCart, cart = [] }) {
   return (
     <>
       <div className="shop-page">
-
         {/* ── Toast ── */}
-        <div className={`shop-toast ${toast ? "show" : ""}`}>
-          <span className="toast-icon">✓</span>
-          <span>{toast?.name}</span>
-        </div>
+       {toast && (
+  <div className={`shop-toast show`}>
+    <span className="toast-icon">✓</span>
+    <span>{toast.name}</span>
+  </div>
+)}
 
         {/* ── Page header ── */}
         <div className="shop-header">
@@ -122,7 +114,6 @@ export default function Products({ addToCart, cart = [] }) {
 
         {/* ── Toolbar ── */}
         <div className="shop-toolbar">
-
           <div className="search-wrap">
             <svg className="search-icon" width="16" height="16" viewBox="0 0 24 24"
               fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
@@ -140,27 +131,10 @@ export default function Products({ addToCart, cart = [] }) {
             )}
           </div>
 
-          <div className="sort-wrap">
-            <select
-              className="sort-select"
-              value={sort}
-              onChange={(e) => setSort(e.target.value)}
-            >
-              {SORT_OPTIONS.map((o) => (
-                <option key={o.value} value={o.value}>{o.label}</option>
-              ))}
-            </select>
-            <svg className="sort-chevron" width="14" height="14" viewBox="0 0 24 24"
-              fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-              <polyline points="6 9 12 15 18 9"/>
-            </svg>
-          </div>
-
           <div className="view-toggle">
             <button
               className={`vbtn ${view === "grid" ? "vbtn-active" : ""}`}
               onClick={() => setView("grid")}
-              title="Grid view"
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                 <rect x="3"  y="3"  width="7" height="7" rx="1"/>
@@ -172,7 +146,6 @@ export default function Products({ addToCart, cart = [] }) {
             <button
               className={`vbtn ${view === "list" ? "vbtn-active" : ""}`}
               onClick={() => setView("list")}
-              title="List view"
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" strokeWidth="2" strokeLinecap="round">
@@ -215,7 +188,6 @@ export default function Products({ addToCart, cart = [] }) {
           <div className="empty-state">
             <div className="empty-icon">🌾</div>
             <h3>No products found</h3>
-            <p>Try adjusting your search or category filter.</p>
             <button
               className="btn-reset"
               onClick={() => { setSearch(""); navigate("/products"); }}
@@ -236,18 +208,11 @@ export default function Products({ addToCart, cart = [] }) {
                   key={item.id}
                   style={{ animationDelay: `${i * 0.05}s` }}
                 >
-                  {item.badge && (
-                    <span className="prod-badge">{item.badge}</span>
-                  )}
-                  {qty > 0 && (
-                    <span className="qty-badge">{qty} in cart</span>
-                  )}
+                  {item.badge && <span className="prod-badge">{item.badge}</span>}
+                  {qty > 0 && <span className="qty-badge">{qty} in cart</span>}
 
                   <Link to={`/product/${item.id}`} className="prod-img-wrap">
                     <img src={item.image} alt={item.name} className="prod-img" />
-                    <div className="prod-img-overlay">
-                      <span className="quick-view">Quick View →</span>
-                    </div>
                   </Link>
 
                   <div className="prod-info">
@@ -256,12 +221,8 @@ export default function Products({ addToCart, cart = [] }) {
                       <h4 className="prod-name">{item.name}</h4>
                     </Link>
 
-                    <div className="prod-footer">
-                      <div className="prod-price">
-                        <span className="currency">₹</span>
-                        {item.price.toLocaleString("en-IN")}
-                      </div>
-
+                    <div className="prod-footer" style={{ justifyContent: 'flex-end' }}>
+                      {/* Price removed from here */}
                       <button
                         className={[
                           "add-btn",

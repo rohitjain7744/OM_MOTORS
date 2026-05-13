@@ -6,7 +6,7 @@ const NAV_LINKS = [
   { label: "Home",       to: "/",         icon: "⌂" },
   { label: "Know Us",    to: "/about",    icon: "◎" },
   { label: "Products",   to: "/products", icon: "▦" },
-  { label: "Catalog",    to: "/catalog",  icon: "☰" },
+  { label: "Harvester",    to: "/catalog",  icon: "☰" },
   { label: "Contact Us", to: "/contact",  icon: "✉" },
 ];
 

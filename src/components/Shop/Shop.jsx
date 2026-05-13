@@ -1,14 +1,22 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import "./shop.css";
-import img1 from "../../assets/hero1.jpg";
+import "./Shop.css";
+import img1 from "../../assets/Product/img1.jpg";
+import img2 from "../../assets/Product/img2.jpg";
+import img3 from "../../assets/Product/img3.jpg";
+import img4 from "../../assets/Product/img25.jpg";
+import img5 from "../../assets/Product/img5.jpg";
+import img6 from "../../assets/Product/img6.jpg";
+
 
 // ✅ keep only this
 const categories = [
-  { name: "Hand Tools", img: img1 },
-  { name: "Industrial Plumbing", img: "/assets/plumbing.jpg" },
-  { name: "Power Tools", img: "/assets/power-tools.jpg" },
-  { name: "Colour Spray", img: "/assets/spray.jpg" },
+  { name: "Machine Component", img: img1 },
+  { name: "Belt", img: img2 },
+  { name: "Bearing", img: img3 },
+  { name: "Gear", img: img4 },
+  { name: "Sive", img: img5 },
+  { name: "Hand Tools", img: img6 },
 ];
 
 export default function ShopCategory() {

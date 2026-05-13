@@ -1,6 +1,7 @@
 import React from "react";
 import "./KnowUs.css";
 import  Hero from "../../assets/hero1.jpg";
+import AboutSection from "../../components/AboutSection/About"; 
 
 export default function KnowUs() {
   return (
@@ -11,7 +12,7 @@ export default function KnowUs() {
         <h1>About OM MOTORS</h1>
         <p>Empowering farmers with modern tools & smart solutions</p>
       </section>
-
+<AboutSection/>
       {/* ABOUT */}
       <section className="knowus-about">
         <div className="text">

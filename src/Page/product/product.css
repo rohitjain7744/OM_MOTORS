@@ -427,29 +427,18 @@ body {
    TOAST
 ══════════════════════════════════════════════ */
 .shop-toast {
-  position: fixed;
-  bottom: 1.5rem;
-  right: 1.5rem;
-  z-index: 9999;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  background: var(--green-deep);
-  color: #fff;
-  font-size: 0.86rem;
-  font-weight: 400;
-  padding: 0.85rem 1.4rem;
-  border-radius: 999px;
-  border: 1px solid var(--lime-border);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.35), 0 0 0 1px rgba(168,216,50,0.15);
-  transform: translateY(80px);
+  /* ... purani properties ... */
+  
+  display: none; /* Default mein gayab */
   opacity: 0;
-  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
-  pointer-events: none;
-  max-width: calc(100vw - 3rem);
+  pointer-events: none; 
 }
 
-.shop-toast.show { transform: translateY(0); opacity: 1; }
+.shop-toast.show {
+  display: flex; /* Sirf tab dikhe jab .show class ho */
+  opacity: 1;
+  pointer-events: auto;
+}
 
 .toast-icon {
   width: 22px; height: 22px;

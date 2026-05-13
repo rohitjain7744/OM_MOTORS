@@ -1,18 +1,13 @@
 import React from 'react'
+import Category from '../../components/Category/Category' 
 
 const Catalog = () => {
   return (
-    <div  style={{ height: '30px' }}>
-      <h1>coming soon</h1>
-
-
-
-<h1>coming soon</h1>
-      <div style={{ height: '200px' }}></div>
-      <h1>coming soon</h1>
-      <h1>coming soon</h1>
+    <div>
+      <Category />  
     </div>
-  )
+  )  
+
 }
 
 export default Catalog

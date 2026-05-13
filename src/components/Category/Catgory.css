@@ -1,0 +1,164 @@
+/* ── Section Wrapper ── */
+.new-arrival-section {
+  padding: 100px 0;
+  background-color: #071a0f; /* Deep Green from OM Motors theme */
+  overflow: hidden;
+}
+
+/* ── Section Header ── */
+.section-header {
+  margin-bottom: 60px;
+  border-left: 4px solid #a8d832; /* Lime accent border */
+  padding-left: 25px;
+}
+
+.eyebrow {
+  color: #a8d832;
+  font-size: 0.9rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.header-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: #ffffff;
+  font-weight: 900;
+  line-height: 1.1;
+}
+
+.text-lime { color: #a8d832; }
+
+/* ── Big Size Grid Logic ── */
+.arrival-grid {
+  display: grid;
+  /* Min-width ko 350px rakha hai taaki cards bade dikhein aur compress na ho */
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 40px; /* Expansive gap for premium look */
+}
+
+/* ── Premium Expansive Cards ── */
+.arrival-card-premium {
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 32px;
+  padding: 25px;
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.arrival-card-premium:hover {
+  transform: translateY(-15px);
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(168, 216, 50, 0.3);
+  box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.6);
+}
+
+/* ── Image Container (Wide Look) ── */
+.arrival-img-container {
+  width: 100%;
+  height: 280px; /* Increased height for bigger visual impact */
+  border-radius: 24px;
+  overflow: hidden;
+  background: linear-gradient(145deg, #0a2214, #05140b);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.arrival-img {
+  width: 85%;
+  height: 85%;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.4));
+  transition: transform 0.8s ease;
+}
+
+.arrival-card-premium:hover .arrival-img {
+  transform: scale(1.1) rotate(-2deg);
+}
+
+/* ── Card Body ── */
+.arrival-body {
+  padding: 30px 10px 10px;
+  flex-grow: 1;
+}
+
+.arrival-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  color: #fff;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.arrival-desc {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.6;
+  margin-bottom: 30px;
+  /* Large content ko 4 lines ke baad truncate karega taaki card balance rahe */
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── Premium Action Button ── */
+.shop-now-btn-premium {
+  background: #a8d832;
+  color: #071a0f;
+  border: none;
+  padding: 16px 35px;
+  border-radius: 100px;
+  font-weight: 800;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  width: fit-content;
+  transition: all 0.3s ease;
+}
+
+.shop-now-btn-premium:hover {
+  background: #ffffff;
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(168, 216, 50, 0.4);
+}
+
+.btn-icon {
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.shop-now-btn-premium:hover .btn-icon {
+  transform: translateX(5px);
+}
+
+/* ── Neon Footer Glow ── */
+.grass-footer-glow {
+  height: 5px;
+  width: 30%;
+  background: #a8d832;
+  margin: 20px auto 0;
+  border-radius: 100px;
+  opacity: 0.1;
+  box-shadow: 0 0 20px #a8d832;
+  transition: all 0.5s ease;
+}
+
+.arrival-card-premium:hover .grass-footer-glow {
+  width: 70%;
+  opacity: 0.8;
+}

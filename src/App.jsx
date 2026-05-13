@@ -6,20 +6,25 @@ import Navbar from "./components/Navbar/Navbar";
 import Hero from "./components/Hero/Hero";
 import ShopCategory from "./components/Shop/Shop";
 import Testimonials from "./components/Testimonials/Testimonials";
-import Contact from "./components/Contact/Contact";
+import Contact from "./Page/Contact/Contact";
 import Footer from "./components/Footer/Footer";
+import AboutSection from "./components/AboutSection/About";
+import Category from "./components/Category/Category";
 
 // Pages
 import Catalog from "./Page/Catalog/Catalog";
-import Products from "./Page/product/product";
-import Product from "./Page/Product/product";
-import Cart from "./Page/Cart/cart";
+import Product from "./Page/product";
+import Products from "./Page/Product/product";
+import Cart from "./Page/cart/cart";
 import KnowUs from "./Page/KnowUs/KnowUs";
+
 
 // 🏠 Home Page
 const Home = () => (
   <>
     <Hero />
+   < AboutSection/>
+   <Category />
     <ShopCategory />
     <Testimonials />
     <Contact />
@@ -96,6 +101,8 @@ export default function App() {
 
         {/* Catalog */}
         <Route path="/catalog" element={<Catalog />} />
+
+   
 
         {/* 404 */}
         <Route
